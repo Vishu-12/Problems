@@ -1,0 +1,49 @@
+#QUestion name - Sales by match
+#Question link-
+#https://www.hackerrank.com/challenges/one-month-preparation-kit-sock-merchant/problem?h_l=interview&isFullScreen=true&playlist_slugs%5B%5D%5B%5D=preparation-kits&playlist_slugs%5B%5D%5B%5D=one-month-preparation-kit&playlist_slugs%5B%5D%5B%5D=one-month-week-two
+
+
+
+#solution:
+
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+#
+# Complete the 'sockMerchant' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY ar
+#
+
+def sockMerchant(n, ar):
+    # Write your code here
+    Sum=0
+    s=dict(Counter(ar))
+    # print(s)
+    for i in s:
+        # print(s[i])
+        if s[i]>=2:
+            d=s[i]//2
+            Sum=Sum+d   
+    
+    return Sum
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
